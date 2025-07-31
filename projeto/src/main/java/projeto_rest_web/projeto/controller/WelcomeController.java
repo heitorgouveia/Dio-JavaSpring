@@ -8,10 +8,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 @RestController
 public class WelcomeController {
     @GetMapping
-    public String getMethodName(@RequestParam String param) {
-        return new String();
-    }
-    
     public String welcome(){
         return "Welcome to my Spring Boot web API";
     }
