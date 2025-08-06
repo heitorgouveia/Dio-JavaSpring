@@ -5,6 +5,7 @@ import org.springframework.context.annotation.Configuration;
 
 import io.swagger.v3.oas.models.OpenAPI;
 import io.swagger.v3.oas.models.info.Info;
+import io.swagger.v3.oas.models.servers.Server;
 import io.swagger.v3.oas.models.info.Contact;
 
 @Configuration
@@ -21,7 +22,9 @@ public class SwaggerConfig {
                     .name("Heitor")
                     .email("heitor@example.com")
                     .url("http//seusite.com.br")
+                    
                 )
-            );
+            )
+            .addServersItem(new Server().url("http://localhost:8080"));
     }
 }

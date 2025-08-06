@@ -4,11 +4,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.stereotype.Repository;
+
+import projeto_rest_web.projeto.handler.BusinessException;
 import projeto_rest_web.projeto.model.Usuario;
 
 @Repository
 public class UsarioRepository {
     public void save(Usuario usuario){
+        if(usuario.getLogin()==null)
+            throw new BusinessException("O campo login é obrigatório");
         if(usuario.getId()==null)
         System.out.println("Save - recebendo o usuário na camda de repository");
         else
