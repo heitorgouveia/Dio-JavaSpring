@@ -1,19 +1,29 @@
-package spring.security.spring_security;
+package spring.security.spring_security.config;
 
-import org.springframework.security.core.userdetails.User;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.provisioning.InMemoryUserDetailsManager;
+import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
+
 import static org.springframework.security.config.Customizer.withDefaults;
+
+import org.springframework.beans.factory.annotation.Autowired;
 
 @Configuration
 @EnableWebSecurity
 public class WebSecurityConfig {
+    @Autowired
+    private SecurityDataBaseService securityService;
+
+    @Bean
+    public DaoAuthenticationProvider authenticationProvider() {
+    DaoAuthenticationProvider authProvider = new DaoAuthenticationProvider();
+    authProvider.setUserDetailsService(securityService);
+    authProvider.setPasswordEncoder(NoOpPasswordEncoder.getInstance()); // ou um encoder real como BCrypt
+    return authProvider;}
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
@@ -24,11 +34,11 @@ public class WebSecurityConfig {
                 .requestMatchers("/managers").hasRole("MANAGER")
                 .anyRequest().authenticated()
             )
-            .formLogin(withDefaults());
+            .httpBasic(withDefaults());
 
         return http.build();
     }
-
+/*
     @Bean
     public UserDetailsService userDetailsService() {
         UserDetails user = User.withDefaultPasswordEncoder()
@@ -42,5 +52,5 @@ public class WebSecurityConfig {
                 .roles("MANAGER")
                 .build();
         return new InMemoryUserDetailsManager(user, admin);
-    }
+    }*/
 }
