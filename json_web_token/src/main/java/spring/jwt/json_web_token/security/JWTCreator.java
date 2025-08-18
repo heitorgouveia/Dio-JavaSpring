@@ -35,7 +35,16 @@ public static JWTObject create(String token, String prefix, String key)
         jwtObject.setSubject(claims.getSubject());
         jwtObject.setIssuedAt(claims.getIssuedAt());
         jwtObject.setExpiration(claims.getExpiration());
-        jwtObject.setRoles((List<String>) claims.get(ROLES_AUTHORITIES));
+        Object rolesObj = claims.get(ROLES_AUTHORITIES);
+        List<String> roles;
+        if (rolesObj instanceof List<?>) {
+            roles = ((List<?>) rolesObj).stream()
+                .map(Object::toString)
+                .toList();
+        } else {
+            roles = List.of();
+        }
+        jwtObject.setRoles(roles);
         return jwtObject;
     }
 
