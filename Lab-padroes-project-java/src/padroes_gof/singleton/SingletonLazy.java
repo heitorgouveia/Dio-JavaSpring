@@ -1,4 +1,4 @@
-package padroes_gof;
+package padroes_gof.singleton;
 
 /*Singleton preguiçoso
  * Implementa o padrão Singleton de forma que a instância é criada apenas quando é realmente necessária.

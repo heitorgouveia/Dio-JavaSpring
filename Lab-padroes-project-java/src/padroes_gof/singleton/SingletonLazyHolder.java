@@ -1,4 +1,4 @@
-package padroes_gof;
+package padroes_gof.singleton;
 
 /*Singleton Lazy Holder
  */
