@@ -1,5 +1,6 @@
 package padroes_gof;
 
+import padroes_gof.facade.Facade;
 import padroes_gof.singleton.SingletonEager;
 import padroes_gof.singleton.SingletonLazy;
 import padroes_gof.singleton.SingletonLazyHolder;
@@ -39,6 +40,18 @@ public class Testes{
 
         robo.mover();
         robo.mover();
+
+        robo.setComportamento(defensivo);
+        robo.mover();
+        robo.mover();
+        robo.setComportamento(agressivo);
+        robo.mover();
+        robo.mover();
+        robo.mover();
+
+        //Facade
+        Facade facade = new Facade();
+        facade.migrarCliente("Heitor","72880");
         
 
     }
