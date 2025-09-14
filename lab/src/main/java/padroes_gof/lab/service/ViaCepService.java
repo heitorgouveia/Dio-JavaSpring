@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import padroes_gof.lab.model.Endereco;
 
-@FeignClient(name = "viacep", url ="viacep.com.br/ws/01001000/json/")
+@FeignClient(name = "viacep", url ="viacep.com.br/ws")
 public interface ViaCepService {
 
     @RequestMapping(method = RequestMethod.GET, value = "/{cep}/json/")

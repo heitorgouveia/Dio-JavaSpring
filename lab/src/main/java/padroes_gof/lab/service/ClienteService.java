@@ -1,7 +1,5 @@
 package padroes_gof.lab.service;
 
-import org.springframework.stereotype.Service;
-
 import padroes_gof.lab.model.Cliente;
 
 /**
