@@ -19,10 +19,10 @@ import org.springframework.web.bind.annotation.PutMapping;
 
 
 @RestController
-@RequestMapping("Clientes")
+@RequestMapping("clientes")
 public class ClientesController {
 
-    @Autowired 
+    @Autowired
     private ClienteService clienteService;
 
     @GetMapping()

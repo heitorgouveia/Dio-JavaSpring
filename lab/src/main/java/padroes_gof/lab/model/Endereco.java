@@ -1,8 +1,5 @@
 package padroes_gof.lab.model;
 
-import java.util.LinkedHashMap;
-import java.util.Map;
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 
@@ -23,7 +20,7 @@ private String ibge;
 private String gia;
 private String ddd;
 private String siafi;
-private Map<String, Object> additionalProperties = new LinkedHashMap<String, Object>();
+
 public String getCep() {
     return cep;
 }
@@ -102,12 +99,7 @@ public String getSiafi() {
 public void setSiafi(String siafi) {
     this.siafi = siafi;
 }
-public Map<String, Object> getAdditionalProperties() {
-    return additionalProperties;
-}
-public void setAdditionalProperties(Map<String, Object> additionalProperties) {
-    this.additionalProperties = additionalProperties;
-}
+
 
 
 

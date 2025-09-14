@@ -1,6 +1,5 @@
 package padroes_gof.lab.model;
 
-import padroes_gof.lab.model.Endereco;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;

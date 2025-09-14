@@ -12,6 +12,7 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 	*- OpenFeign */
 
 @EnableFeignClients
+
 @SpringBootApplication
 public class LabApplication {
 
