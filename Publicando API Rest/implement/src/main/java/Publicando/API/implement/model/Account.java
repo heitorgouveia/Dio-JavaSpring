@@ -2,12 +2,28 @@ package Publicando.API.implement.model;
 
 import java.math.BigDecimal;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+
+@Entity (name = "tb_Account")
 public class Account {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private Long agency;
-    private Long number;
+
+    @Column (unique = true)
+    private String agency;
+    
+    private String number;
+
+    @Column (name="additional_Limit", scale = 13, precision = 2 )
     private BigDecimal limit;
+
+    @Column (scale = 13, precision = 2)
     private BigDecimal balance;
     public Long getId() {
         return id;
@@ -15,16 +31,16 @@ public class Account {
     public void setId(Long id) {
         this.id = id;
     }
-    public Long getAgency() {
+    public String getAgency() {
         return agency;
     }
-    public void setAgency(Long agency) {
+    public void setAgency(String agency) {
         this.agency = agency;
     }
-    public Long getNumber() {
+    public String getNumber() {
         return number;
     }
-    public void setNumber(Long number) {
+    public void setNumber(String number) {
         this.number = number;
     }
     public BigDecimal getLimit() {
