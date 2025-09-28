@@ -6,6 +6,10 @@ Diagrama de Classes Mermaid gerado a partir do chatGPT e JSON.
 classDiagram
     class User {
         +String name
+        +Account account
+        +Feature [] feature
+        +Card card
+        +News [] news
     }
 
     class Account {
