@@ -20,10 +20,10 @@ public class Account {
     
     private String number;
 
-    @Column (name="additional_Limit", scale = 13, precision = 2 )
+    @Column (name="additional_Limit", precision = 13, scale = 2 )
     private BigDecimal limit;
 
-    @Column (scale = 13, precision = 2)
+    @Column (precision = 13, scale = 2)
     private BigDecimal balance;
     public Long getId() {
         return id;
